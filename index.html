@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text">
+                    <input id="nums" class="form-control" type="text">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
@@ -42,7 +42,7 @@
                                 <div>C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button id="submitbtn" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <div id="notify-area" class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="jao" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="asho" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     <script>
@@ -62,6 +62,22 @@
         //Generating the Pin
         document.getElementById("generateBtn").addEventListener("click", function(){
             document.getElementById("random").value = Math.floor((Math.random() * 9999) + 1000);
+        })
+
+        // Button going on
+
+
+
+        //Submit
+        document.getElementById("submitBtn").addEventListener("click", function(){
+            if(document.getElementById("random").value == document.getElementById("nums").value){
+                const asho = document.getElementById("asho");
+                asho.style.display = "block";
+            }
+            else{
+                const jao = document.getElementById("jao");
+                jao.style.display = "block";
+            }
         })
     </script>
 </body>
