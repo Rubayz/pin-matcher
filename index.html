@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text">
-                    <button class="generate-btn">Generate Pin</button>
+                    <input id="random" class="form-control" type="text">
+                    <button id="generateBtn" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -37,9 +37,9 @@
                               <div class="button">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button"><</div>
+                                <div><</div>
                                 <div class="button">0</div>
-                                <div class="button">C</div>
+                                <div>C</div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn">Submit</button>
@@ -49,13 +49,20 @@
                 </div>
             </div>
         </div>
-        <div class="notify-section">
+        <div id="notify-area" class="notify-section">
             <p class="notify">❌ Pin Didn't Match, Please try again</p>
             <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     <script>
-        
+        // Hiding the notification
+        const notify = document.getElementById("notify-area");
+        notify.style.display = "none";
+
+        //Generating the Pin
+        document.getElementById("generateBtn").addEventListener("click", function(){
+            document.getElementById("random").value = Math.floor((Math.random() * 9999) + 1000);
+        })
     </script>
 </body>
 </html>
